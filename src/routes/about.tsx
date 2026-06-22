@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Target, Compass, GraduationCap, UserRound } from "lucide-react";
+import { Target, Compass, GraduationCap, Crown } from "lucide-react";
 
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { MENTOR, PRESIDENT } from "@/lib/team";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "ATESO is a student-led innovation body at LPU School of Agriculture. Read our founding story, vision, mission and leadership team.",
+          "ATESO is a student-led innovation body at LPU School of Agriculture. Read our founding story, vision, mission and leadership.",
       },
       { property: "og:title", content: "About ATESO" },
       {
@@ -26,31 +27,10 @@ export const Route = createFileRoute("/about")({
 
 const ROADMAP = [
   { year: "Year 1", title: "Origin", body: "Founding cohort, 6-pillar curriculum, first hackathon and workshop series." },
-  { year: "Year 2", title: "Depth", body: "Faculty-mentored research tracks, patent literacy, first incubated prototypes." },
+  { year: "Year 2", title: "Depth", body: "Faculty-mentored research tracks, IPR literacy, first incubated prototypes." },
   { year: "Year 3", title: "Reach", body: "Inter-college competitions, industrial partnerships, public showcase event." },
   { year: "Year 4", title: "Scale", body: "Cross-disciplinary startup studio, agritech publications, alumni network." },
   { year: "Year 5", title: "Institute", body: "ATESO as a recognised institutional pillar — funded labs, sustained pipeline of agri-tech founders." },
-];
-
-const LEADERSHIP = [
-  {
-    role: "Mentor",
-    name: "Dr. P. K. Chhuneja",
-    bio: "Head, School of Agriculture, LPU. Institutional anchor and academic mentor for ATESO.",
-    icon: GraduationCap,
-  },
-  {
-    role: "Faculty Mentor",
-    name: "Dr. Adesh Kumar",
-    bio: "Domain mentor across research, agritech and student development.",
-    icon: UserRound,
-  },
-  {
-    role: "Founder & President",
-    name: "Parth Aneja",
-    bio: "Founder and President, ATESO (2026–27). Architect of the 5-year roadmap and the student-builder culture.",
-    icon: UserRound,
-  },
 ];
 
 function AboutPage() {
@@ -59,9 +39,9 @@ function AboutPage() {
       <section className="bg-hero grain">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
           <span className="font-mono-brand text-[11px] uppercase tracking-[0.22em] text-lime">
-            About
+            About · ATESO 2026
           </span>
-          <h1 className="mt-3 max-w-3xl font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
+          <h1 className="mt-3 max-w-3xl font-display text-5xl font-bold leading-[1.05] text-foreground sm:text-6xl">
             A student body for the people who'd rather <span className="text-gradient-lime">build it</span> than wait for it.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -87,8 +67,8 @@ function AboutPage() {
           <Target className="h-6 w-6 text-lime" />
           <h2 className="mt-4 font-display text-2xl font-semibold">Mission</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Equip every member with hands-on skills, research literacy and
-            entrepreneurial fluency across six pillars, and reward sustained
+            Equip every member with hands-on skills, IPR & research literacy and
+            entrepreneurial fluency across our domains — and reward sustained
             contribution through a transparent points and badge system.
           </p>
         </div>
@@ -122,23 +102,30 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-        <SectionHeading eyebrow="Leadership" title="The people behind ATESO." />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {LEADERSHIP.map((p) => {
-            const Icon = p.icon;
-            return (
-              <div key={p.name} className="rounded-2xl border border-border bg-card p-7">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-emerald">
-                  <Icon className="h-6 w-6 text-lime" />
-                </div>
-                <span className="mt-5 inline-block font-mono-brand text-[11px] uppercase tracking-[0.22em] text-lime">
-                  {p.role}
-                </span>
-                <h3 className="mt-1 font-display text-xl font-semibold">{p.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.bio}</p>
+        <SectionHeading eyebrow="Leadership" title="Mentor & President." />
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {[
+            { p: MENTOR, Icon: GraduationCap },
+            { p: PRESIDENT, Icon: Crown },
+          ].map(({ p, Icon }) => (
+            <div key={p.name} className="rounded-2xl border border-border bg-card p-7">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-emerald text-lime-foreground">
+                <Icon className="h-6 w-6" />
               </div>
-            );
-          })}
+              <span className="mt-5 inline-block font-mono-brand text-[11px] uppercase tracking-[0.22em] text-lime">
+                {p.role}
+              </span>
+              <h3 className="mt-1 font-display text-xl font-semibold text-foreground">{p.name}</h3>
+              {p.detail && (
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.detail}</p>
+              )}
+              <div className="mt-3 text-xs text-muted-foreground">
+                {p.uid && <div>{p.uid}</div>}
+                {p.regNo && <div>{p.regNo}</div>}
+                {p.contact && <div>{p.contact}</div>}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </SiteLayout>
