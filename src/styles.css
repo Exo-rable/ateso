@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =========================================================
-   ATESO Design System
-   Dark-first. Deep agricultural green + tech lime + earth.
+   ATESO Design System — Beige & Green
+   Light-first. Cream beige base, deep green accents, black text.
    ========================================================= */
 
 @theme inline {
@@ -65,73 +65,72 @@
 }
 
 :root {
-  /* ATESO uses dark mode as default — values here are the dark palette. */
   --radius: 0.75rem;
 
-  /* Brand */
-  --primary: oklch(0.48 0.13 150);            /* deep agri green #1B6B3A-ish */
-  --primary-foreground: oklch(0.98 0 0);
-  --lime: oklch(0.82 0.21 134);               /* tech lime #7ED348 */
-  --lime-foreground: oklch(0.16 0.02 145);
-  --earth: oklch(0.36 0.06 50);               /* root brown #5C3D2E */
-  --gold: oklch(0.78 0.16 78);                /* leaderboard gold #F59E0B */
+  /* Brand — deep forest green for everything green-accented */
+  --primary: #1B6B3A;
+  --primary-foreground: #FFFDF6;
+  --lime: #1B6B3A;                  /* re-purposed: deep green accent on beige */
+  --lime-foreground: #FFFDF6;
+  --earth: #5C3D2E;
+  --gold: #B8860B;
 
-  /* Surfaces */
-  --background: oklch(0.16 0.015 150);        /* near-black with green tint */
-  --foreground: oklch(0.98 0.005 150);
-  --surface: oklch(0.21 0.018 150);
-  --surface-elevated: oklch(0.25 0.02 150);
+  /* Surfaces — beige base blending to cream */
+  --background: #FFF2E0;
+  --foreground: #1A1A1A;
+  --surface: #FFFDF6;
+  --surface-elevated: #FFFFFF;
 
-  --card: oklch(0.21 0.018 150);
-  --card-foreground: oklch(0.98 0.005 150);
-  --popover: oklch(0.21 0.018 150);
-  --popover-foreground: oklch(0.98 0.005 150);
+  --card: #FFFDF6;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFDF6;
+  --popover-foreground: #1A1A1A;
 
-  --secondary: oklch(0.27 0.025 150);
-  --secondary-foreground: oklch(0.98 0.005 150);
-  --muted: oklch(0.24 0.02 150);
-  --muted-foreground: oklch(0.7 0.02 150);
-  --accent: oklch(0.82 0.21 134);
-  --accent-foreground: oklch(0.16 0.02 145);
+  --secondary: #F5E6CC;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F5E6CC;
+  --muted-foreground: #6B5D4F;
+  --accent: #1B6B3A;
+  --accent-foreground: #FFFDF6;
 
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive: #B91C1C;
+  --destructive-foreground: #FFFDF6;
 
-  --border: oklch(0.3 0.02 150 / 60%);
-  --input: oklch(0.3 0.02 150 / 70%);
-  --ring: oklch(0.82 0.21 134);
+  --border: #E6D6BD;
+  --input: #E6D6BD;
+  --ring: #1B6B3A;
 
-  --chart-1: oklch(0.82 0.21 134);
-  --chart-2: oklch(0.48 0.13 150);
-  --chart-3: oklch(0.78 0.16 78);
-  --chart-4: oklch(0.55 0.18 30);
-  --chart-5: oklch(0.7 0.08 200);
+  --chart-1: #1B6B3A;
+  --chart-2: #4A8B5A;
+  --chart-3: #B8860B;
+  --chart-4: #8B4513;
+  --chart-5: #5C7A8A;
 
-  --sidebar: oklch(0.18 0.015 150);
-  --sidebar-foreground: oklch(0.98 0.005 150);
-  --sidebar-primary: oklch(0.82 0.21 134);
-  --sidebar-primary-foreground: oklch(0.16 0.02 145);
-  --sidebar-accent: oklch(0.24 0.02 150);
-  --sidebar-accent-foreground: oklch(0.98 0.005 150);
-  --sidebar-border: oklch(0.3 0.02 150 / 60%);
-  --sidebar-ring: oklch(0.82 0.21 134);
+  --sidebar: #FFFDF6;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #1B6B3A;
+  --sidebar-primary-foreground: #FFFDF6;
+  --sidebar-accent: #F5E6CC;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #E6D6BD;
+  --sidebar-ring: #1B6B3A;
 
-  /* Composite tokens */
+  /* Composite tokens — beige cream gradients */
   --gradient-hero:
-    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.48 0.13 150 / 35%), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 100%, oklch(0.82 0.21 134 / 18%), transparent 60%),
-    linear-gradient(180deg, oklch(0.14 0.012 150), oklch(0.16 0.015 150));
-  --gradient-lime: linear-gradient(135deg, oklch(0.82 0.21 134), oklch(0.7 0.18 142));
-  --gradient-emerald: linear-gradient(135deg, oklch(0.48 0.13 150), oklch(0.38 0.1 155));
-  --shadow-elevated: 0 1px 0 0 oklch(1 0 0 / 4%) inset, 0 24px 48px -16px oklch(0 0 0 / 60%);
-  --shadow-lime-glow: 0 0 0 1px oklch(0.82 0.21 134 / 30%), 0 8px 32px -8px oklch(0.82 0.21 134 / 40%);
-  --grain-opacity: 0.04;
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(27, 107, 58, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 85% 100%, rgba(184, 134, 11, 0.12), transparent 60%),
+    linear-gradient(180deg, #FFFDF6 0%, #FFF2E0 100%);
+  --gradient-lime: linear-gradient(135deg, #1B6B3A, #2E8B57);
+  --gradient-emerald: linear-gradient(135deg, #1B6B3A 0%, #14532D 100%);
+  --shadow-elevated: 0 1px 0 0 rgba(255,255,255,0.5) inset, 0 18px 40px -20px rgba(60, 40, 20, 0.25);
+  --shadow-lime-glow: 0 0 0 1px rgba(27, 107, 58, 0.25), 0 8px 28px -10px rgba(27, 107, 58, 0.35);
+  --grain-opacity: 0.05;
 }
 
 .dark {
-  /* Force-same: dark IS the default. Kept so dark-class scopes still resolve. */
-  --background: oklch(0.16 0.015 150);
-  --foreground: oklch(0.98 0.005 150);
+  /* Light theme only; keep the same tokens for any nested dark-scoped components. */
+  --background: #FFF2E0;
+  --foreground: #1A1A1A;
 }
 
 @layer base {
@@ -140,7 +139,7 @@
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
     background-color: var(--color-background);
   }
 
@@ -155,6 +154,7 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    color: var(--color-foreground);
   }
 }
 
@@ -190,7 +190,7 @@
   box-shadow: var(--shadow-lime-glow);
 }
 
-/* Grain texture overlay for hero/section backgrounds */
+/* Grain texture overlay */
 @utility grain {
   position: relative;
   &::after {
@@ -199,22 +199,20 @@
     inset: 0;
     pointer-events: none;
     opacity: var(--grain-opacity);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
   }
 }
 
-/* Leaf-vein section divider line */
 @utility leaf-divider {
   height: 1px;
   background:
     linear-gradient(90deg,
       transparent 0%,
-      oklch(0.82 0.21 134 / 50%) 50%,
+      rgba(27, 107, 58, 0.45) 50%,
       transparent 100%);
 }
 
-/* Animated count-up reveal */
 @keyframes ateso-fade-up {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -224,8 +222,8 @@
 }
 
 @keyframes ateso-glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.82 0.21 134 / 0%); }
-  50%      { box-shadow: 0 0 0 8px oklch(0.82 0.21 134 / 18%); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(27, 107, 58, 0); }
+  50%      { box-shadow: 0 0 0 8px rgba(27, 107, 58, 0.18); }
 }
 @utility animate-glow-pulse {
   animation: ateso-glow-pulse 2.4s ease-in-out infinite;

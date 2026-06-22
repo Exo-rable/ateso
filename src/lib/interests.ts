@@ -61,12 +61,16 @@ export const INTEREST_CATEGORIES: InterestCategory[] = [
     ],
   },
   {
-    key: "research",
-    label: "Research",
-    blurb: "Papers, patents, scientific writing.",
+    key: "ipr",
+    label: "IPR — Intellectual Property Rights",
+    blurb: "Patents, idea generation, funding assistance, portfolio & resume building.",
     items: [
+      "Patent Awareness & Filing",
+      "Idea Generation",
+      "Funding Assistance",
+      "Portfolio Building",
+      "Resume Building",
       "Research Writing",
-      "Patent Awareness",
       "Scientific Writing",
       "Publication Support",
     ],
@@ -130,10 +134,10 @@ export const PILLARS = [
       "From idea to incubation — business modelling, prototyping and startup readiness.",
   },
   {
-    title: "Research",
+    title: "IPR",
     icon: "FlaskConical",
     blurb:
-      "Paper writing, patent awareness and publication support with faculty mentorship.",
+      "Patents, idea generation, funding assistance, portfolio & resume building — with faculty mentorship.",
   },
   {
     title: "Skills",

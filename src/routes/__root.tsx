@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#16221b" },
+      { name: "theme-color", content: "#FFF2E0" },
       { title: "ATESO — Where Agriculture Meets Innovation" },
       {
         name: "description",
@@ -132,7 +132,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <Toaster theme="dark" position="top-right" richColors />
+      <Toaster theme="light" position="top-right" richColors />
     </QueryClientProvider>
   );
 }
