@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Crown, GraduationCap, Users, Phone, IdCard, ArrowRight } from "lucide-react";
+import { Crown, GraduationCap, Users, Phone, IdCard, ArrowRight, FileSpreadsheet } from "lucide-react";
 
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { DOMAINS, MENTOR, PRESIDENT } from "@/lib/team";
+import templateAsset from "@/assets/applications-template.xlsx.asset.json";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -143,14 +144,20 @@ function TeamPage() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-            All applications go into a single consolidated spreadsheet (one sheet
-            per domain plus a combined view).{" "}
+          <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <FileSpreadsheet className="mt-0.5 h-5 w-5 shrink-0 text-lime" />
+              <p className="text-sm text-muted-foreground">
+                All applications go into one consolidated spreadsheet — one sheet
+                per domain plus a combined view. Download the template to see
+                the exact columns.
+              </p>
+            </div>
             <a
-              href="/api/public/applications.xlsx"
-              className="font-semibold text-lime underline-offset-4 hover:underline"
+              href={templateAsset.url}
+              className="inline-flex shrink-0 items-center justify-center rounded-md border border-lime bg-lime/10 px-4 py-2 text-sm font-semibold text-lime hover:bg-lime/15"
             >
-              Download the live applications spreadsheet →
+              Download spreadsheet
             </a>
           </div>
         </div>
