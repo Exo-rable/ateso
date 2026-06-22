@@ -49,6 +49,51 @@ export type Database = {
           },
         ]
       }
+      applications: {
+        Row: {
+          created_at: string
+          domain: string
+          email: string
+          full_name: string
+          id: string
+          lpu_reg_no: string
+          phone: string
+          portfolio_url: string | null
+          programme: string | null
+          role: string
+          semester: number | null
+          why: string | null
+        }
+        Insert: {
+          created_at?: string
+          domain: string
+          email: string
+          full_name: string
+          id?: string
+          lpu_reg_no: string
+          phone: string
+          portfolio_url?: string | null
+          programme?: string | null
+          role?: string
+          semester?: number | null
+          why?: string | null
+        }
+        Update: {
+          created_at?: string
+          domain?: string
+          email?: string
+          full_name?: string
+          id?: string
+          lpu_reg_no?: string
+          phone?: string
+          portfolio_url?: string | null
+          programme?: string | null
+          role?: string
+          semester?: number | null
+          why?: string | null
+        }
+        Relationships: []
+      }
       batches: {
         Row: {
           created_at: string
