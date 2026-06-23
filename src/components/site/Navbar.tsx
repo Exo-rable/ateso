@@ -23,7 +23,7 @@ export function Navbar() {
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={atesoLogo.url}
-            alt="ATESO"
+            alt="ATESO organization logo"
             className="h-12 w-12 rounded-lg object-cover ring-1 ring-white/20 transition-transform group-hover:scale-105"
           />
           <div className="flex flex-col leading-none">
@@ -37,7 +37,7 @@ export function Navbar() {
           <span className="mx-2 hidden h-9 w-px bg-white/20 sm:block" />
           <img
             src={lpuLogo.url}
-            alt="Lovely Professional University"
+            alt="Lovely Professional University logo"
             className="hidden h-9 w-auto object-contain sm:block"
           />
         </Link>
