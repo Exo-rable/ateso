@@ -20,6 +20,34 @@ export const Route = createFileRoute("/team")({
         property: "og:description",
         content: "Mentor, president, domain heads and open positions at ATESO.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/team" },
+    ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/team" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              name: MENTOR.name,
+              jobTitle: MENTOR.detail,
+              affiliation: {
+                "@type": "CollegeOrUniversity",
+                name: "Lovely Professional University — School of Agriculture",
+              },
+              memberOf: { "@type": "Organization", name: "ATESO" },
+            },
+            {
+              "@type": "Person",
+              name: PRESIDENT.name,
+              jobTitle: PRESIDENT.role,
+              memberOf: { "@type": "Organization", name: "ATESO" },
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: TeamPage,
