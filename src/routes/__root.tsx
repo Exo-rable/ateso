@@ -100,6 +100,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ATESO — Agro-Technology Entrepreneurial Skill Organization",
+          alternateName: "ATESO",
+          url: "https://ateso.lovable.app",
+          parentOrganization: {
+            "@type": "CollegeOrUniversity",
+            name: "Lovely Professional University — School of Agriculture",
+          },
+          email: "ateso@lpu.in",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Phagwara",
+            addressRegion: "Punjab",
+            addressCountry: "IN",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "ATESO",
+          url: "https://ateso.lovable.app",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
