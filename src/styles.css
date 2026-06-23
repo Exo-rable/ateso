@@ -41,6 +41,9 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
+  --color-navbar: var(--navbar);
+  --color-navbar-foreground: var(--navbar-foreground);
+
   --color-lime: var(--lime);
   --color-lime-foreground: var(--lime-foreground);
   --color-earth: var(--earth);
@@ -95,6 +98,9 @@
 
   --destructive: #B91C1C;
   --destructive-foreground: #FFFDF6;
+
+  --navbar: #14532D;
+  --navbar-foreground: #FFFDF6;
 
   --border: #E6D6BD;
   --input: #E6D6BD;
