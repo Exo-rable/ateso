@@ -20,7 +20,9 @@ export const Route = createFileRoute("/about")({
         content:
           "The founding story, vision and leadership behind ATESO at LPU School of Agriculture.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/about" }],
   }),
   component: AboutPage,
 });

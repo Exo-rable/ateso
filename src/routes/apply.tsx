@@ -21,8 +21,19 @@ export const Route = createFileRoute("/apply")({
   head: () => ({
     meta: [
       { title: "Apply for an ATESO team" },
-      { name: "description", content: "Apply to join an ATESO domain team as a lead or member." },
+      {
+        name: "description",
+        content:
+          "Apply to join an ATESO domain team as a lead or member — tech, IPR, events, media, agritech, design, entrepreneurship or professional development.",
+      },
+      { property: "og:title", content: "Apply for an ATESO team" },
+      {
+        property: "og:description",
+        content: "Apply to join an ATESO domain team as a lead or member.",
+      },
+      { property: "og:url", content: "https://ateso.lovable.app/apply" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/apply" }],
   }),
   component: ApplyPage,
 });

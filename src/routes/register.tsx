@@ -36,7 +36,9 @@ export const Route = createFileRoute("/register")({
         property: "og:description",
         content: "Member registration — pick your interests and join a batch.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/register" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/register" }],
   }),
   component: RegisterPage,
 });
