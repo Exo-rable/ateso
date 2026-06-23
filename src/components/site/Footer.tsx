@@ -10,10 +10,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={atesoLogo.url} alt="ATESO" className="h-11 w-11 rounded-lg object-cover" />
+            <img src={atesoLogo.url} alt="ATESO organization logo" className="h-11 w-11 rounded-lg object-cover" />
             <span className="font-display text-xl font-bold text-foreground">ATESO</span>
             <span className="mx-1 h-7 w-px bg-border" />
-            <img src={lpuLogo.url} alt="LPU" className="h-8 w-auto object-contain" />
+            <img src={lpuLogo.url} alt="Lovely Professional University logo" className="h-8 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Agro-Technology Entrepreneurial Skill Organization — a student-driven

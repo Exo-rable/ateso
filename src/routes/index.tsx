@@ -24,15 +24,17 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "ATESO is the student-led agri-tech innovation body at LPU School of Agriculture. Workshops, hackathons, research and startup incubation.",
+          "Join 120+ LPU agriculture students building agri-tech: hackathons, drone bootcamps, IPR clinics, founder talks and an incubation track — all on one campus calendar.",
       },
-      { property: "og:title", content: "ATESO — Where Agriculture Meets Innovation" },
+      { property: "og:title", content: "ATESO — Where Agriculture Meets Innovation at LPU" },
       {
         property: "og:description",
         content:
-          "Student-driven agri-tech innovation, research and entrepreneurship at LPU.",
+          "The student-led agri-tech innovation body at LPU School of Agriculture — hackathons, workshops, research and startup incubation across six pillars.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/" }],
   }),
   component: Home,
 });

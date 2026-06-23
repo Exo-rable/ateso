@@ -1,6 +1,6 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useMemo, useState } from "react";
+import { cloneElement, isValidElement, useId, useMemo, useState, type ReactElement } from "react";
 import { toast } from "sonner";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { z } from "zod";
@@ -21,8 +21,19 @@ export const Route = createFileRoute("/apply")({
   head: () => ({
     meta: [
       { title: "Apply for an ATESO team" },
-      { name: "description", content: "Apply to join an ATESO domain team as a lead or member." },
+      {
+        name: "description",
+        content:
+          "Apply to join an ATESO domain team as a lead or member — tech, IPR, events, media, agritech, design, entrepreneurship or professional development.",
+      },
+      { property: "og:title", content: "Apply for an ATESO team" },
+      {
+        property: "og:description",
+        content: "Apply to join an ATESO domain team as a lead or member.",
+      },
+      { property: "og:url", content: "https://ateso.lovable.app/apply" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/apply" }],
   }),
   component: ApplyPage,
 });
@@ -207,13 +218,20 @@ function ApplyPage() {
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  const id = useId();
+  const child = isValidElement(children)
+    ? cloneElement(children as ReactElement<{ id?: string }>, { id })
+    : children;
   return (
-    <label className="block">
-      <span className="font-mono-brand text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-1.5 block font-mono-brand text-[11px] uppercase tracking-[0.18em] text-muted-foreground"
+      >
         {label}
-      </span>
-      <div className="mt-1">{children}</div>
-    </label>
+      </label>
+      {child}
+    </div>
   );
 }
 
@@ -222,14 +240,17 @@ function Input({
   onChange,
   type = "text",
   placeholder,
+  id,
 }: {
   value: string;
   onChange: (v: string) => void;
   type?: string;
   placeholder?: string;
+  id?: string;
 }) {
   return (
     <input
+      id={id}
       type={type}
       value={value}
       onChange={(e) => onChange(e.target.value)}

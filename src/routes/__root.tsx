@@ -80,19 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#FFF2E0" },
-      { title: "ATESO — Where Agriculture Meets Innovation" },
+      { title: "ATESO · LPU School of Agriculture" },
       {
         name: "description",
         content:
-          "ATESO is the Agro-Technology Entrepreneurial Skill Organization at LPU School of Agriculture — workshops, hackathons, research and startup incubation for student innovators.",
+          "ATESO — Agro-Technology Entrepreneurial Skill Organization at LPU School of Agriculture. Student-led agri-tech workshops, research and startups.",
       },
       { name: "author", content: "ATESO · LPU" },
-      { property: "og:title", content: "ATESO — Where Agriculture Meets Innovation" },
-      {
-        property: "og:description",
-        content:
-          "Student-driven agri-tech innovation body at Lovely Professional University.",
-      },
+      { property: "og:site_name", content: "ATESO" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -103,6 +98,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ATESO — Agro-Technology Entrepreneurial Skill Organization",
+          alternateName: "ATESO",
+          url: "https://ateso.lovable.app",
+          parentOrganization: {
+            "@type": "CollegeOrUniversity",
+            name: "Lovely Professional University — School of Agriculture",
+          },
+          email: "ateso@lpu.in",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Phagwara",
+            addressRegion: "Punjab",
+            addressCountry: "IN",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "ATESO",
+          url: "https://ateso.lovable.app",
+        }),
       },
     ],
   }),

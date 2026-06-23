@@ -20,7 +20,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Collaborate, volunteer, or get in touch with the ATESO team.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

@@ -20,7 +20,9 @@ export const Route = createFileRoute("/services")({
         property: "og:description",
         content: "All ATESO skill tracks and programmes across six pillars.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/services" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/services" }],
   }),
   component: ServicesPage,
 });

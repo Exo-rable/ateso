@@ -19,6 +19,39 @@ export const Route = createFileRoute("/events")({
         property: "og:description",
         content: "Workshops, hackathons, seminars and industrial visits — dates to be announced.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/events" },
+    ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/events" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "ATESO Events",
+          itemListElement: EVENTS.map((e, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Event",
+              name: e.title,
+              description: e.description,
+              eventStatus: "https://schema.org/EventScheduled",
+              eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+              organizer: {
+                "@type": "Organization",
+                name: "ATESO",
+                url: "https://ateso.lovable.app",
+              },
+              location: {
+                "@type": "Place",
+                name: "LPU School of Agriculture",
+                address: "Phagwara, Punjab, India",
+              },
+            },
+          })),
+        }),
+      },
     ],
   }),
   component: EventsPage,

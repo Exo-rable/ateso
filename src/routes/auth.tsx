@@ -12,8 +12,21 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Sign in to ATESO" },
-      { name: "description", content: "Sign in to ATESO with Google or email OTP." },
+      {
+        name: "description",
+        content:
+          "Sign in to ATESO with Google or an email OTP to register for events, track your queue position, manage your skill domains and earn member badges.",
+      },
+      { property: "og:title", content: "Sign in to ATESO" },
+      {
+        property: "og:description",
+        content:
+          "Sign in with Google or email OTP to register, track events and manage your ATESO membership.",
+      },
+      { property: "og:url", content: "https://ateso.lovable.app/auth" },
+      { name: "robots", content: "noindex" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/auth" }],
   }),
   component: AuthPage,
 });

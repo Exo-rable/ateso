@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { cloneElement, isValidElement, useId, useState, type ReactElement } from "react";
 import { toast } from "sonner";
 import {
   ArrowLeft,
@@ -36,7 +36,9 @@ export const Route = createFileRoute("/register")({
         property: "og:description",
         content: "Member registration — pick your interests and join a batch.",
       },
+      { property: "og:url", content: "https://ateso.lovable.app/register" },
     ],
+    links: [{ rel: "canonical", href: "https://ateso.lovable.app/register" }],
   }),
   component: RegisterPage,
 });
@@ -470,12 +472,16 @@ function Field({
   error?: string;
   children: React.ReactNode;
 }) {
+  const id = useId();
+  const child = isValidElement(children)
+    ? cloneElement(children as ReactElement<{ id?: string }>, { id })
+    : children;
   return (
     <div>
-      <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
+      <label htmlFor={id} className="mb-1.5 block text-xs font-medium text-muted-foreground">
         {label}
       </label>
-      {children}
+      {child}
       {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
     </div>
   );
